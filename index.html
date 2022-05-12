@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             user-select: none;
-            transition: 1s;
+            transition: 0.2s;
         }
         body {
             background-color: #487c60;
@@ -66,11 +66,6 @@
             padding: 8px;
             font-size: 30px;
         }
-        .grid-container > div:active {
-            position: relative;
-            left: 2px;
-            top: 2px;
-        }
         .bg-display {
             background: linear-gradient(to right, #424141, #2a2a2a);
             box-shadow: inset  3px 3px 3px #000000;
@@ -78,35 +73,27 @@
         }
         .bg-gray {
             background-color: #4D4D4D;
-            box-shadow: 2px 2px 2px #000000;
         }
         .bg-gray:active {
             background-color: #393939;
-            box-shadow: inset  3px 3px 3px #000000;
         }
         .bg-gray-light {
             background-color: #666666;
-            box-shadow: 2px 2px 2px #000000;
         }
         .bg-gray-light:active {
             background-color: #4D4D4D;
-            box-shadow: inset  3px 3px 3px #000000;
         }        
         .bg-red {
             background-color: #AC3939;
-            box-shadow: 2px 2px 2px #000000;
         }
         .bg-red:active {
             background-color: #852c2c;
-            box-shadow: inset  3px 3px 3px #000000;
         }
         .bg-blue {
             background-color: #004466;
-            box-shadow: 2px 2px 2px #000000;
         }
         .bg-blue:active {
             background-color: #01334c;
-            box-shadow: inset  3px 3px 3px #000000;
         }
         .display p {
             width: 100%;
@@ -116,6 +103,16 @@
             font-family: 'DS-DIGI', sans-serif;
             letter-spacing: 0.2rem;
         }
+        .btn {
+            box-shadow: 2px 2px 2px #000000;
+        }
+
+        .btn:active {
+            box-shadow: inset  3px 3px 3px #000000;
+            position: relative;
+            left: 2px;
+            top: 2px;
+        }
         </style>
         </head>
         <body>
@@ -124,23 +121,23 @@
         
         <div class="grid-container">
             <div class="bg-display display"><p>15+155+518+12+5/3</p></div>
-            <div class="bg-red btn-ac">AC</div>
-            <div class="bg-gray-light btn-division">/</div>  
-            <div class="bg-gray-light btn-multiplication">x</div>
-            <div class="bg-gray btn-7"><p>7</p></div>
-            <div class="bg-gray btn-8">8</div>
-            <div class="bg-gray btn-9">9</div>
-            <div class="bg-gray-light btn-subtraction">-</div>
-            <div class="bg-gray btn-4">4</div>
-            <div class="bg-gray btn-5">5</div>
-            <div class="bg-gray btn-6">6</div>
-            <div class="bg-gray-light btn-sum">+</div>
-            <div class="bg-gray btn-1">1</div>
-            <div class="bg-gray btn-2">2</div>
-            <div class="bg-gray btn-3">3</div>
-            <div class="bg-blue btn-equal">=</div>
-            <div class="bg-gray btn-0">0</div>
-            <div class="bg-gray btn-dot">.</div>
+            <div class="btn bg-red btn-ac">AC</div>
+            <div class="btn bg-gray-light btn-division">/</div>  
+            <div class="btn bg-gray-light btn-multiplication">x</div>
+            <div class="btn bg-gray btn-7"><p>7</p></div>
+            <div class="btn bg-gray btn-8">8</div>
+            <div class="btn bg-gray btn-9">9</div>
+            <div class="btn bg-gray-light btn-subtraction">-</div>
+            <div class="btn bg-gray btn-4">4</div>
+            <div class="btn bg-gray btn-5">5</div>
+            <div class="btn bg-gray btn-6">6</div>
+            <div class="btn bg-gray-light btn-sum">+</div>
+            <div class="btn bg-gray btn-1">1</div>
+            <div class="btn bg-gray btn-2">2</div>
+            <div class="btn bg-gray btn-3">3</div>
+            <div class="btn bg-blue btn-equal">=</div>
+            <div class="btn bg-gray btn-0">0</div>
+            <div class="btn bg-gray btn-dot">.</div>
         </div>
         
         </body>
