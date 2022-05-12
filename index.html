@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .display {
+            grid-area: display;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .btn-ac {
+            grid-area: ac;
+        }
+        .btn-division { grid-area: division; }
+        .btn-multiplication { grid-area: multiplication; }
+        .btn-7 { grid-area: seven; }
+        .btn-8 { grid-area: eigt; }
+        .btn-9 { grid-area: nine; }
+        .btn-subtraction { grid-area: subtraction; }
+        .btn-4 { grid-area: four; }
+        .btn-5 { grid-area: five; }
+        .btn-6 { grid-area: six; }
+        .btn-sum { grid-area: sum; }
+        .btn-1 { grid-area: one; }
+        .btn-2 { grid-area: two; }
+        .btn-3 { grid-area: three; }
+        .btn-equal {
+            grid-area: equal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn-0 { grid-area: zero; }
+        .btn-dot { grid-area: dot; }
+        
+        .grid-container {
+            max-width: 400px;
+            display: grid;
+            grid-template-areas:
+                'display display display display'
+                'ac ac division multiplication'
+                'seven eigt nine subtraction'
+                'four five six sum'
+                'one two three equal'
+                'zero zero dot equal';
+            gap: 10px;
+            background: #487c60;
+            padding: 10px;
+            box-shadow: 2px 2px 2px #000000;
+        }
+        
+        .grid-container > div {
+          color: #FFFFFF;
+          text-align: center;
+          padding: 20px;
+          font-size: 30px;
+        }
+
+        .bg-display {
+            background: linear-gradient(to right, #363636, #2a2a2a);
+        }
+
+        .bg-gray {
+            background-color: #4D4D4D;
+            box-shadow: 2px 2px 2px #000000;
+        }
+
+        .bg-gray:active {
+            background-color: #393939;
+            box-shadow: inset  3px 3px 3px #000000;
+        }
+
+        .bg-gray-light {
+            background-color: #666666;
+            box-shadow: 2px 2px 2px #000000;
+        }
+
+        .bg-gray-light:active {
+            background-color: #4D4D4D;
+            box-shadow: inset  3px 3px 3px #000000;
+        }
+        
+        .bg-red {
+            background-color: #AC3939;
+            box-shadow: 2px 2px 2px #000000;
+        }
+
+        .bg-red:active {
+            background-color: #852c2c;
+            box-shadow: inset  3px 3px 3px #000000;
+        }
+
+        .bg-blue {
+            background-color: #004466;
+            box-shadow: 2px 2px 2px #000000;
+        }
+
+        .bg-blue:active {
+            background-color: #01334c;
+            box-shadow: inset  3px 3px 3px #000000;
+        }
+        </style>
+        </head>
+        <body>
+        
+        
+        
+        <div class="grid-container">
+            <div class="bg-display display">Display</div>
+            <div class="bg-red btn-ac">AC</div>
+            <div class="bg-gray-light btn-division">/</div>  
+            <div class="bg-gray-light btn-multiplication">x</div>
+            <div class="bg-gray btn-7">7</div>
+            <div class="bg-gray btn-8">8</div>
+            <div class="bg-gray btn-9">9</div>
+            <div class="bg-gray-light btn-subtraction">-</div>
+            <div class="bg-gray btn-4">4</div>
+            <div class="bg-gray btn-5">5</div>
+            <div class="bg-gray btn-6">6</div>
+            <div class="bg-gray-light btn-sum">+</div>
+            <div class="bg-gray btn-1">1</div>
+            <div class="bg-gray btn-2">2</div>
+            <div class="bg-gray btn-3">3</div>
+            <div class="bg-blue btn-equal">=</div>
+            <div class="bg-gray btn-0">0</div>
+            <div class="bg-gray btn-dot">.</div>
+        </div>
+        
+        </body>
+</html>
