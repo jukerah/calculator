@@ -14,6 +14,7 @@
             margin: 0;
             padding: 0;
             user-select: none;
+            transition: 1s;
         }
         body {
             background-color: #487c60;
@@ -64,6 +65,11 @@
             color: #FFFFFF;
             padding: 8px;
             font-size: 30px;
+        }
+        .grid-container > div:active {
+            position: relative;
+            left: 2px;
+            top: 2px;
         }
         .bg-display {
             background: linear-gradient(to right, #424141, #2a2a2a);
@@ -121,7 +127,7 @@
             <div class="bg-red btn-ac">AC</div>
             <div class="bg-gray-light btn-division">/</div>  
             <div class="bg-gray-light btn-multiplication">x</div>
-            <div class="bg-gray btn-7">7</div>
+            <div class="bg-gray btn-7"><p>7</p></div>
             <div class="bg-gray btn-8">8</div>
             <div class="bg-gray btn-9">9</div>
             <div class="bg-gray-light btn-subtraction">-</div>
