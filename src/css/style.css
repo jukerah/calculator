@@ -1,0 +1,133 @@
+@font-face {
+    font-family: DS-DIGI;
+    src: url(../../assets/fonts/DS-DIGI.TTF);
+}
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    transition: 0.2s;
+}
+body {
+    background-color: #487c60;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    font-size: 64px;
+    margin-top: 16px;
+    color: yellow;            
+    font-family: DS-DIGI;
+    letter-spacing: 0.2rem;;
+}
+.display { grid-area: display; }
+.grid-ac { grid-area: ac; }
+.grid-division { grid-area: division; }
+.grid-multiplication { grid-area: multiplication; }
+.grid-7 { grid-area: seven; }
+.grid-8 { grid-area: eigt; }
+.grid-9 { grid-area: nine; }
+.grid-subtraction { grid-area: subtraction; }
+.grid-4 { grid-area: four; }
+.grid-5 { grid-area: five; }
+.grid-6 { grid-area: six; }
+.grid-sum { grid-area: sum; }
+.grid-1 { grid-area: one; }
+.grid-2 { grid-area: two; }
+.grid-3 { grid-area: three; }
+.grid-equal { grid-area: equal; }
+.grid-0 { grid-area: zero; }
+.grid-dot { grid-area: dot; }        
+.grid-calculator {
+    width: calc(100% - 48px);
+    height: calc(100% - 48px);
+    display: grid;
+    grid-template-areas:
+        'display display display display'
+        'ac ac division multiplication'
+        'seven eigt nine subtraction'
+        'four five six sum'
+        'one two three equal'
+        'zero zero dot equal';
+    gap: 16px;
+    padding: 24px;
+}        
+.grid-calculator > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    padding: 8px;
+}
+.bg-display {
+    background: linear-gradient(to right, #424141, #2a2a2a);
+    box-shadow: inset  3px 3px 3px #000000;
+    justify-content: flex-end;
+}
+.bg-gray {
+    background-color: #4D4D4D;
+    font-size: 30px;
+}
+.bg-gray:active {
+    background-color: #393939;
+}
+.bg-gray-light {
+    background-color: #666666;
+    font-size: 30px;
+}
+.bg-gray-light:active {
+    background-color: #4D4D4D;
+}        
+.bg-red {
+    background-color: #AC3939;
+    font-size: 30px;
+}
+.bg-red:active {
+    background-color: #852c2c;
+}
+.bg-blue {
+    background-color: #004466;
+    font-size: 80px;
+}
+.bg-blue:active {
+    background-color: #01334c;
+}
+.display p {
+    width: 100%;
+    text-align: right;
+    padding: 8px 16px;
+    font-size: 24px;
+    font-family: 'DS-DIGI', sans-serif;
+    letter-spacing: 0.2rem;
+}
+.btn {
+    box-shadow: 2px 2px 2px #000000;
+}
+.btn:active {
+    box-shadow: inset  3px 3px 3px #000000;
+    position: relative;
+    left: 2px;
+    top: 2px;
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+    }
+    .bg-blue {
+        background-color: #004466;
+        font-size: 56px;
+    }
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 40px;
+    }
+    .bg-blue {
+        background-color: #004466;
+        font-size: 40px;
+    }
+}
