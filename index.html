@@ -10,7 +10,11 @@
     <body>
         <h1>Calculator</h1>
         <div class="grid-calculator">
-            <div class="bg-display display"><p id="display">0</p></div>
+            <div class="bg-display display">
+                <p id="display-num-old">.</p>
+                <p id="display-operator">.</p>
+                <p id="display-num-current">.</p>
+            </div>
             <div onclick="cleanDisplay()" class="btn bg-red grid-ac">AC</div>
             <div onclick="handleClick('/')" class="btn bg-gray-light grid-division">/</div>  
             <div onclick="handleClick('*')" class="btn bg-gray-light grid-multiplication">x</div>
