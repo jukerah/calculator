@@ -6,122 +6,121 @@ let valueDisplay = '';
 let keyPress = '';
 let numA = 0;
 let numB = 0;
+let numC = 0;
 let operator = '';
 let result = 0;
 
 const sum = (numA, numB) => {
-    result += numA + numB;
-    numA = result;
-    console.log('result: '+result);
+    result = numA + numB;
 }
 
 const subtraction = (numA, numB) => {
-    result += numA - numB;
-    numA = result;
-    console.log('result: '+result);
+    result = numA - numB;
 }
 
 const multiplication = (numA, numB) => {
-    result += numA * numB;
-    numA = result;
-    console.log('result: '+result);
+    result = numA * numB;
 }
 
 const division = (numA, numB) => {
-    result += numA / numB;
-    numA = result;
-    console.log('result: '+result);
+    result = numA / numB;
 }
 
 const showDisplay = (value) => {
-    displayNumCurrent.innerHTML = '';
-    displayNumCurrent.innerHTML = value.toString();
+
 }
 
 const handleClick = (keyPress) => {
-    valueDisplay += keyPress;
-    showDisplay(valueDisplay);
 
     switch (keyPress) {
         case '+':
+            if (displayNumOld.innerHTML === '' && displayNumCurrent.innerHTML === '' && displayOperator.innerHTML) {
+                numA = parseFloat(displayNumCurrent.innerHTML);
+            }
+            if (displayNumOld.innerHTML === '' && displayNumCurrent.innerHTML === '' || displayNumOld.innerHTML !== '' && displayNumCurrent.innerHTML === '' && displayOperator.innerHTML !== '') {
+                break;
+            } else  {
+                numB = parseFloat(displayNumCurrent.innerHTML);
+                sum(numA, numB);
+                displayNumCurrent.innerHTML = result.toString();
+                result = 0;
+            }
+            
             operator = keyPress;
-            displayNumOld.innerHTML = numA.toString();
+            numA = parseFloat(displayNumCurrent.innerHTML);
+            displayOperator.innerHTML = operator;
+            displayNumOld.innerHTML = numA;
+            displayNumCurrent.innerHTML = '';
+
             break;
         case '-':
+            if (displayNumOld.innerHTML === '' && displayNumCurrent.innerHTML === '' || displayNumOld.innerHTML !== '' && displayNumCurrent.innerHTML === '' && displayOperator.innerHTML === '-') {
+                break;
+            } else  {
+                numB = parseFloat(displayNumCurrent.innerHTML);
+                subtraction(numA, numB);
+                displayNumCurrent.innerHTML = result.toString();
+                result = 0;
+            }
+            
             operator = keyPress;
-            displayNumOld.innerHTML = numA.toString();
+            console.log(numA);
+            numA = parseFloat(displayNumCurrent.innerHTML);
+            console.log(numA);
             displayOperator.innerHTML = operator;
+            displayNumOld.innerHTML = numA;
+            displayNumCurrent.innerHTML = '';
+
             break;
         case '*':
-            operator = keyPress;
-            displayNumOld.innerHTML = numA.toString();
             break;
         case '/':
-            operator = keyPress;
-            displayNumOld.innerHTML = numA.toString();
-            break;  
-    }
-
-    if (numA === 0 && operator !== '') {
-        numA = parseFloat(valueDisplay);
-        console.log('numA: '+numA);
-        valueDisplay = '';
-        showDisplay('');  
-        switch (keyPress) {
-            case '+':
-            case '-':
-                operator = keyPress;
-                displayNumOld.innerHTML = numA.toString();
-                break;
-            case '*':
-            case '/':
-                operator = keyPress;
-                break;
-        }  
-    }
-    if (numA !== 0 && valueDisplay !== '') {
-        numB = parseFloat(valueDisplay);
-        console.log('numB: '+numB);
-
-
-        
-
-
-
-        switch (operator) {
-            case '+':
-                console.log('chama soma');
-                sum(numA, numB);
-                break;
-            case '-':
-                console.log('chama sub');
-                subtraction(numA, numB);
-                break;
-            case '*':
-                console.log('chama mult');
-                division(numA, numB);
-                break;
-            case '/':
-                console.log('chama div');
-                division(numA, numB);
-                break;
-        }
-        valueDisplay = '';
-        showDisplay('');          
+            break;
+        default:
+            displayNumCurrent.innerHTML += keyPress;
     }
 }
 
 
 const cleanDisplay = () => {
-    console.log('limpa');
-    valueDisplay = '';
-    displayNumCurrent.innerHTML = '';
     numA = 0;
     numB = 0;
+    result = 0;
+    displayNumOld.innerHTML = '';
+    displayOperator.innerHTML = '';
+    displayNumCurrent.innerHTML = '';
 }
 
 const calculate = () => {
-    if (result !== 0) {
-        showDisplay(result);
+    numA = (displayNumOld.innerHTML === '') ? 0 : parseFloat(displayNumOld.innerHTML);
+    numB = (displayNumCurrent.innerHTML === '') ? 0 : parseFloat(displayNumCurrent.innerHTML);
+    console.log(numA);
+    console.log(numB);
+
+    switch (operator) {
+        case '+':
+            sum(numA, numB);
+            numA = 0;
+            numB = 0;
+            displayNumOld.innerHTML = '';
+            displayOperator.innerHTML = '';
+            displayNumCurrent.innerHTML = parseFloat(result);
+            result = 0;
+
+            break;
+        case '-':
+            subtraction(numA, numB);
+            numA = 0;
+            numB = 0;
+            displayNumOld.innerHTML = '';
+            displayOperator.innerHTML = '';
+            displayNumCurrent.innerHTML = parseFloat(result);
+            result = 0;
+
+            break;
+        case '*':
+            break;
+        case '/':
+            break;
     }
 }

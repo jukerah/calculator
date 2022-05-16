@@ -17,17 +17,11 @@ body {
     justify-content: center;
     align-items: center;
 }
-h1 {
-    font-size: 64px;
-    margin-top: 16px;
-    color: yellow;            
-    font-family: DS-DIGI;
-    letter-spacing: 0.2rem;;
-}
 .display {
     grid-area: display;
     display: flex;
     flex-direction: column;
+    overflow:hidden;
 }
 .grid-ac { grid-area: ac; }
 .grid-division { grid-area: division; }
@@ -68,7 +62,7 @@ h1 {
     padding: 8px;
 }
 .bg-display {
-    height: 80px;
+    height: 100px;
     background: linear-gradient(to right, #424141, #2a2a2a);
     box-shadow: inset  3px 3px 3px #000000;
     justify-content: flex-end;
@@ -102,10 +96,10 @@ h1 {
     background-color: #01334c;
 }
 .display p {
-    width: 100%;
+    width: calc(100% - 32px);
+    font-size: 32px;
     text-align: right;
-    padding: 8px 16px;
-    font-size: 24px;
+    padding: 0 8px;
     font-family: 'DS-DIGI', sans-serif;
     letter-spacing: 0.2rem;
 }
@@ -118,21 +112,14 @@ h1 {
     left: 2px;
     top: 2px;
 }
+
 @media (max-width: 768px) {
-    h1 {
-        font-size: 40px;
-    }
     .bg-blue {
-        background-color: #004466;
         font-size: 56px;
     }
 }
 @media (max-width: 480px) {
-    h1 {
-        font-size: 40px;
-    }
     .bg-blue {
-        background-color: #004466;
         font-size: 40px;
     }
 }
