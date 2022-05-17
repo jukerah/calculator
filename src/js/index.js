@@ -2,11 +2,9 @@ const displayNumOld = document.getElementById('display-num-old');
 const displayOperator = document.getElementById('display-operator');
 const displayNumCurrent = document.getElementById('display-num-current');
 
-let valueDisplay = '';
 let keyPress = '';
 let numA = 0;
 let numB = 0;
-let numC = 0;
 let operator = '';
 let result = 0;
 
@@ -52,10 +50,10 @@ const showDisplay = (operator) => {
     displayNumCurrent.innerHTML = '';
 }
 
-const validate = (keyPress) => {
+const handleClick = (keyPress) => {
+
     switch (keyPress) {
         case '+':
-        case '-':
         case '*':
         case '/':
             if (displayNumOld.innerHTML === '' && displayNumCurrent.innerHTML === '' || displayNumOld.innerHTML !== '' && displayNumCurrent.innerHTML === '' && displayOperator.innerHTML !== '') {
@@ -67,19 +65,26 @@ const validate = (keyPress) => {
                 result = 0;
             }
             operator = keyPress;
+            showDisplay(operator);
 
             break;
-    }
-}
-
-const handleClick = (keyPress) => {
-
-    switch (keyPress) {
-        case '+':
         case '-':
-        case '*':
-        case '/':
-            validate(keyPress)
+            if (displayNumOld.innerHTML === '' && displayNumCurrent.innerHTML === '' && displayOperator.innerHTML === '') {
+                displayNumCurrent.innerHTML = keyPress;
+                break;
+            }
+            if (displayNumOld.innerHTML === '' && displayNumCurrent.innerHTML === keyPress && displayOperator.innerHTML === '') {
+                break;
+            }
+            if (displayNumOld.innerHTML === '' && displayNumCurrent.innerHTML === '' || displayNumOld.innerHTML !== '' && displayNumCurrent.innerHTML === '' && displayOperator.innerHTML !== '') {
+                break;
+            }
+            if (displayNumOld.innerHTML !== '' && displayNumCurrent.innerHTML !== '' || displayOperator.innerHTML !== '') {
+                numB = parseFloat(displayNumCurrent.innerHTML);
+                nextCalc(numA, numB, operator);
+                result = 0;
+            }
+            operator = keyPress;
             showDisplay(operator);
 
             break;
@@ -87,7 +92,6 @@ const handleClick = (keyPress) => {
             displayNumCurrent.innerHTML += keyPress;
     }
 }
-
 
 const cleanDisplay = () => {
     numA = 0;
@@ -97,7 +101,6 @@ const cleanDisplay = () => {
     displayOperator.innerHTML = '';
     displayNumCurrent.innerHTML = '';
 }
-
 
 const calculate = () => {
     numA = (displayNumOld.innerHTML === '') ? 0 : parseFloat(displayNumOld.innerHTML);
@@ -117,6 +120,7 @@ const calculate = () => {
             division(numA, numB);
             break;
     }
+
     switch (operator) {
         case '+':
         case '-':
